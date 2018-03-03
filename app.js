@@ -15,8 +15,18 @@ const io = require('socket.io')(server);
 io.on('connection', (client)=>{
     console.log('New client Joined');
     // client.emit('new-client',)
-    client.on('mouseMoved', (data)=>{
-        client.broadcast.emit('drawMouse',data);
+   
+    client.on('newShape', (data)=>{
+        console.log(' new shape started');
+        client.broadcast.emit('newShape',data);
+    })
+    client.on('newPoint', (data)=>{
+        console.log(' new point added');
+        client.broadcast.emit('newPoint',data);
+    })
+    client.on('undo', (data)=>{
+        console.log(data);
+        client.broadcast.emit('undo',null);
     })
 })
 
