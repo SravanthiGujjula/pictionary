@@ -1,5 +1,5 @@
-let socket = io('http://192.168.0.11:3000');
-// let socket = io.connect('http://localhost:3000');
+
+let socket = io.connect('http://localhost:3000');
 let shapes = [];
 let shape;
 
